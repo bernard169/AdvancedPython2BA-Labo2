@@ -1,29 +1,26 @@
 import re
 
 #Exercice 1
+def compare (myPattern, patternNature):
+    p = re.compile (myPattern)
+    ask = input ("Please enter your {} : \n".format (patternNature))
+    if p.match (ask) is not None : 
+        print ("Your {} is :".format (patternNature), ask)
+    else :
+        while p1.match (ask) is None :
+             print ("Please enter your {} correctly".format (patternNature))
+             ask = input ("Please enter your {}: ".format (patternNature))
+        print ("Your {} is :".format (patternNature), ask) 
 #a
-pattern1 = "\+\d{2} \d{3} \d{2} \d{2} \d{2}"
-p1 = re.compile (pattern1)
+pattern1 = "^\+\d{2} \d{3} \d{2} \d{2} \d{2}$"
+compare (pattern1, "phone number")
 
-ask = input ("Please enter your phone number :")
-if p1.match (ask) is not None : 
-    print ("Your phone number is :", ask)
-else :
-    while p1.match (ask) is None :
-        print ("Please enter your phone number correctly")
-        ask = input ("Please enter your phone number: ")
-    print ("Your phone number is :", ask)
-    
 #b
-pattern2 = "\+?\-?\d+"
-p2 = re.compile (pattern2)
+pattern2 = "^\+?\-?\d+$"
+compare (pattern2, "integer" )
 
-ask2 = input ("Please enter an integer :")
-if p2.match (ask2) is not None : 
-    print ("Your number is :", ask2)
-else :
-    while p2.match (ask2) is None :
-        print ("Please enter an integer")
-        ask2 = input ("Your integer : ")
-    print ("Your integer is :", ask2)
-    
+#c
+
+pattern3 = "^[1-9]?[A-Z]{3}\d{3}$"
+pattern3b = "^[1-9]?\d{3}[A-Z]{3}$"
+compare (pattern3, "plate number")
