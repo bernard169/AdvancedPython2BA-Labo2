@@ -4,6 +4,8 @@ import re
 
 def checkRegexCrossword (linesRegex, columnsRegex, answer):
     isCorrect = False
+    linesOK = True
+    columnsOK = True
     for line in linesRegex: #If each line matches the answer, linesOK is ultimately True
         l = re.compile (line)
         if l.match (answer [linesRegex.index (line)]) is not None:
