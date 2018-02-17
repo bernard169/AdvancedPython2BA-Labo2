@@ -4,7 +4,7 @@ import re
 
 def checkRegexCrossword (linesRegex, columnsRegex, answer):
     isCorrect = True
-    for line in linesRegex: #If each line matches the answer, linesOK is ultimately True
+    for line in linesRegex: #If one single line doesn't match the answer, function is interrupted 
         l = re.compile (line)
         if l.match (answer [linesRegex.index (line)]) is None:
             return False
@@ -18,6 +18,9 @@ def checkRegexCrossword (linesRegex, columnsRegex, answer):
     return isCorrect
 
 print (checkRegexCrossword (["EC|CD[ABS]",".[GROS]+","C?[KS]+"],
-                             ["[^CBF]MC|XD","[CRI]*[ACK]","[AEIOU]*S"], 
-                             ["ECA", "MRO", "CKS"]))  
+                            ["[^CBF]MC|XD","[CRI]*[ACK]","[AEIOU]*S"], 
+                            ["ECA", "MRO", "CKS"])) #given by the teacher 
 
+print (checkRegexCrossword (["(BO|DF)[MNO]", "[IXZ]+(RA|MN)", "^[CSO]+$"], 
+                            ["[^DXZ](IS|MV)", "[OPQR]*", "(NA|ST)[JKS]+"],
+                            ["BON", "IRA", "SOS"])) #new crossword
